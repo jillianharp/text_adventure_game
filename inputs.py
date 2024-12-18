@@ -1,5 +1,4 @@
 def getUserDir():
-
     validCommands = ['one','two','three']
     while True:
         userInput = input("Choose a route (one,two,three): ")
