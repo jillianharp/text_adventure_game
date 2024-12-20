@@ -7,6 +7,7 @@ def ShowLibrary(world):
     print("Welcome to your journey!")
     print("You are on an unknown island.")
     print("You have obtained a map.")
+    print("If you choose the right path, there will be a reward.")
     print("There are three routes you can take.")
 
     print("What route will you take?")
@@ -66,3 +67,4 @@ def showUnderground(world):
     else:
         print("Only the shield here.")
         print("Continue east.")
+

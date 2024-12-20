@@ -4,7 +4,10 @@ def createBoard(boardSize):
         board.append([])
         for col in range(boardSize):
             board[row].append(0)
+            
     return board
+
+
 
 def printBoard(world):
     outputString = ""

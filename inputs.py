@@ -1,7 +1,7 @@
 def getUserDir():
     validCommands = ['one','two','three']
     while True:
-        userInput = input("Choose a route (one,two,three): ")
+        userInput = input("Choose a route (one,two,three)\n: ")
         userInput = userInput.lower().strip()
         if userInput not in validCommands:
             print("Invalid choice. Choose from (one,two,three): ")
