@@ -13,6 +13,7 @@ def getUserName():
     while True:
         userInput = input("Enter your character's name\n:")
         userInput = userInput.upper().strip()
+    
         if len(userInput) > 15:
             print("15 characters or less please")
             continue

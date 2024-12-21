@@ -1,4 +1,5 @@
 from random import *
+from inputs import *
 
 def diceRoll(roll):
     rSplit = roll.split("d")
@@ -8,7 +9,7 @@ def diceRoll(roll):
     diceList = []
     for i in range (numDice):
         diceList.append(randint(1, diceSize))
-    return diceSize
+    return diceList
 
 def turn(attacker, defender, who):
     if who == "player":
@@ -18,18 +19,18 @@ def turn(attacker, defender, who):
         decision = input()
     else:
         if (randint(1,2) == 1):
-            decision == "1"
+            decision = "1"
         else:
-            decision == "2"
+            decision = "2"
 
     if decision == "1":
         defender["hp"] -= attacker["atk"]
-        print(f"{attacker["name"]} hits {defender["name"]} for {attacker["atk"]} damage")
+        print(f"{attacker['name']} hits {defender['name']} for {attacker['atk']} damage")
 
-    if decision == "2":
+    elif decision == "2":
         healAmt = sum(diceRoll("1d4"))
         attacker["hp"] += healAmt
-        print(f"{attacker["name"]} gain {healAmt} hp")
+        print(f"{attacker['name']} gain {healAmt} hp")
 
 def turn2(attacker, defender, who):
     if who == "player":
@@ -39,40 +40,41 @@ def turn2(attacker, defender, who):
         decision = input()
     else:
         if (randint(1,2) ==1):
-            decision == "1"
+            decision = "1"
         else:
-            decision == "2"
+            decision = "2"
 
     if decision == "1":
         defender["hp"] -= attacker["atk"]
-        print(f"{attacker["name"]} hit {defender["name"]} for {attacker["atk"]} damage")
+        print(f"{attacker['name']} hit {defender['name']} for {attacker['atk']} damage")
     
-    if decision == "2":
+    elif decision == "2":
         attacker["hp"] -= defender["atk"]
-        print(f"{defender["name"]} hit {attacker["name"]} for {defender["atk"]}")
+        print(f"{defender['name']} hit {attacker['name']} for {defender['atk']}")
 
 def turn3(attacker, defender, who):
+    decision = None
     if who == "player":
-        print(f"{attacker["name"]} swarm down towards you")
+        print(f"{attacker['name']} swarm down towards you")
         print("What do you choose to do?: ")
         print("1: Use your shield")
         print("2: Run away")
         decision = input()
     else:
         if (randint(1,2) ==1):
-            decision == "1"
+            decision = "1"
         else:
-            decision == "2"
+            decision = "2"
     
     if decision == "1":
         healAmt = sum(diceRoll("1d4"))
         defender["hp"] += healAmt
-        print(f"You blocked {attacker["name"]} and regained {healAmt} hp")
-        print(f"{defender["name"]} regain {healAmt} hp")
+        print(f"You blocked {attacker['name']} and regained {healAmt} hp")
+        print(f"{defender['name']} regain {healAmt} hp")
 
-    if decision == "2":
+    elif decision == "2":
         defender["hp"] -= attacker["atk"]
-        print(f"{attacker["name"]} attack {defender["name"]} for {attacker["atk"]} damage")
+        print(f"{attacker['name']} attack {defender['name']} for {attacker['atk']} damage")
 
 def beachBattle(player, enemy):
     print(f"{enemy["name"]} caw from above you")
@@ -105,8 +107,9 @@ def beachBattle(player, enemy):
             return "enemy dead"
         
 def main():
+    playerName = getUserName()
     player = {
-        "name": {player["name"]},
+        "name": playerName,
         "hp": 20,
         "atk": 5
     }
@@ -125,8 +128,8 @@ def main():
         print("But sorry, we don't offer training.")
         print("Congratulations! Enjoy your new friend.")
     else:
-        print(f"{player["name"]} has reached their final fate.")
-        print(f"This is the end of the journey for {player["name"]}")
-    pass
+        print(f"{player['name']} has reached their final fate.")
+        print(f"This is the end of the journey for {playerName}")
+    return
 
 main()

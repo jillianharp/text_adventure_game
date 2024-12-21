@@ -1,4 +1,5 @@
 from random import *
+from inputs import *
 
 def diceRoll(roll):
     rSplit = roll.split("d")
@@ -24,12 +25,12 @@ def turn(attacker, defender, who):
 
     if decision == "1":
         defender["hp"] -= attacker["atk"]
-        print(f"{attacker["name"]} hits {defender["name"]} for {attacker["atk"]} damage")
+        print(f"{attacker['name']} hits {defender['name']} for {attacker['atk']} damage")
 
-    if decision == "2":
+    elif decision == "2":
         healAmt = sum(diceRoll("1d4"))
         attacker["hp"] += healAmt
-        print(f"{attacker["name"]} regains {healAmt} hp")
+        print(f"{attacker['name']} gains {healAmt} hp")
 
 def turn2(attacker, defender, who):
     if who == "player":
@@ -46,15 +47,16 @@ def turn2(attacker, defender, who):
     if decision == "1":
         healAmt = sum(diceRoll("1d4"))
         attacker["hp"] += healAmt
-        print(f"{attacker["name"]} regains {healAmt} hp")
+        print(f"{attacker['name']} regains {healAmt} hp")
 
-    if decision == "2":
+    elif decision == "2":
         attacker["hp"] -= defender["atk"]
-        print(f"{defender["name"]} hits {attacker["name"]} for {defender["atk"]} damage")
+        print(f"{defender['name']} hits {attacker['name']} for {defender['atk']} damage")
 
 def turn3(attacker, defender, who):
+    decision = None
     if who == "player":
-        print(f"{attacker["name"]} runs towards you")
+        print(f"{attacker['name']} runs towards you")
         print("What do you choose?: ")
         print("1: Dodge the attack")
         print("2: Attempt to block")
@@ -68,16 +70,16 @@ def turn3(attacker, defender, who):
         healAmt = sum(diceRoll("1d4"))
         attacker["hp"] -= defender["atk"]
         print("You dodge the attack causing the enemy to fly past you")
-        print(f"{attacker["name"]} hits a tree, causing {defender["atk"]} damage")
+        print(f"{attacker['name']} hits a tree, causing {defender['atk']} damage")
 
-    if decision == "2":
+    elif decision == "2":
         defender["hp"] -= attacker["atk"]
-        print(f"{attacker["name"]} hits {defender["name"]} for {attacker["atk"]} damage")
+        print(f"{attacker['name']} hits {defender['name']} for {attacker['atk']} damage")
 
 
 
 def jungleBattle(player, enemy):
-    print(f"{enemy["name"]} nears {player["name"]}, looking for a battle")
+    print(f"{enemy['name']} nears {player['name']}, looking for a battle")
     while True:
         turn(player, enemy, "player")
         turn(enemy, player, "enemy")
@@ -107,8 +109,10 @@ def jungleBattle(player, enemy):
             return "enemy dead"
         
 def main():
+
+    playerName = getUserName()
     player = {
-        "name": {player["name"]},
+        "name": playerName,
         "hp": 20,
         "atk": 5
     }
@@ -127,10 +131,8 @@ def main():
         print("Congratulations! Enjoy your prize.")
     else:
         print(f"{player['name']} has reached their fatal fate.")
-        print(f"This is the end of the journey for {player['name']}...")
-        exit(1)
-
-    pass
+        print(f"This is the end of the journey for {playerName}...")
+    return
 
 
 main()
