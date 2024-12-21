@@ -1,10 +1,10 @@
+
 from boardTools import *
 from inputs import *
-from routeOneBattle import *
-
 
 
 def main():
+
     world = {}
     loc = {
         "x": 2,
@@ -15,6 +15,11 @@ def main():
     world["playerLoc"] = loc
     world["playerName"] = getUserName()
 
+    f = open("story.txt", "r")
+    dataString = f.read()
+    print(dataString)
+    f.close()
+
     while True:
         printBoard(world)
         userInput = getUserDir()
@@ -24,6 +29,13 @@ def main():
             loc["x"] -= 1
         if userInput == 'three' and loc["x"] < len(world["board"])-1:
             loc["x"] += 1
+
+    
+
+        
+        
+    
+    
 
 
 main()

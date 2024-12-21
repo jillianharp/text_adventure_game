@@ -6,6 +6,7 @@ def getUserDir():
         if userInput not in validCommands:
             print("Invalid choice. Choose from (one,two,three): ")
             continue
+
         return userInput
     
 def getUserName():
@@ -20,3 +21,4 @@ def getUserName():
             continue
 
         return userInput
+    

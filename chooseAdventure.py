@@ -4,13 +4,6 @@
 # Final Project - Choose Your Own Adventure
 
 def ShowLibrary(world):
-    print("Welcome to your journey!")
-    print("You are on an unknown island.")
-    print("You have obtained a map.")
-    print("If you make it through the obstacles, there will be a reward.")
-    print("There are three routes you can take.")
-
-    print("What route will you take?")
 
     userInput = input()
     if userInput == "one":
@@ -27,7 +20,7 @@ def ShowLibrary(world):
         world["loc"] = "beach"
         return
     if userInput == "three":
-        print("You have chosen the underground path.")
+        print("You have chosen the path to the cave.")
         print("Head east until you reach the cave.")
         print("It shouldn't be too far.")
         world["loc"] = "cave"

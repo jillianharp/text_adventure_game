@@ -75,7 +75,7 @@ def turn3(attacker, defender, who):
       print(f"{attacker["name"]} attacks {defender["name"]} for {attacker["atk"]} damage")
 
 
-def beachBattle(player, enemy):
+def caveBattle(player, enemy):
     print(f"{enemy["name"]} crawls out from the cave")
     while True:
         turn(player, enemy, "player")
@@ -118,7 +118,7 @@ def main():
         "atk": 15
     }
 
-    result = beachBattle(player, enemy)
+    result = caveBattle(player, enemy)
     if result == "enemy dead":
         print(f"The {enemy["name"]} breaks apart in front of you")
         print("You have survived your great battle.")
