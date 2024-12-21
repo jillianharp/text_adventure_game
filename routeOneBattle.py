@@ -53,7 +53,7 @@ def turn2(attacker, defender, who):
         print(f"{defender["name"]} hits {attacker["name"]} for {defender["atk"]} damage")
 
 def turn3(attacker, defender, who):
-    if who == "enemy":
+    if who == "player":
         print(f"{attacker["name"]} runs towards you")
         print("What do you choose?: ")
         print("1: Dodge the attack")
@@ -88,6 +88,24 @@ def jungleBattle(player, enemy):
         if (enemy["hp"] <= 0):
             return "enemy dead"
         
+        turn2(player, enemy, "player")
+        turn2(enemy, player, "enemy")
+        print(f"{player['name']} has {player['hp']} hp left")
+        print(f"{enemy['name']} has {enemy['hp']} hp left")
+        if (player["hp"] <= 0):
+            return "player dead"
+        if (enemy["hp"] <= 0):
+            return "enemy dead"
+        
+        turn3(player, enemy, "player")
+        turn3(enemy, player, "enemy")
+        print(f"{player['name']} has {player['hp']} hp left")
+        print(f"{enemy['name']} has {enemy['hp']} hp left")
+        if (player["hp"] <= 0):
+            return "player dead"
+        if (enemy["hp"] <= 0):
+            return "enemy dead"
+        
 def main():
     player = {
         "name": {player["name"]},
@@ -112,3 +130,5 @@ def main():
         exit(1)
 
     pass
+
+main()
