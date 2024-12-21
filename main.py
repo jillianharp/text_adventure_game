@@ -25,6 +25,5 @@ def main():
         if userInput == 'three' and loc["x"] < len(world["board"])-1:
             loc["x"] += 1
 
-        
 
 main()

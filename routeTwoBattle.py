@@ -29,7 +29,7 @@ def turn(attacker, defender, who):
     if decision == "2":
         healAmt = sum(diceRoll("1d4"))
         attacker["hp"] += healAmt
-        print(f"{attacker["name"]} regains {healAmt} hp")
+        print(f"{attacker["name"]} gain {healAmt} hp")
 
 def turn2(attacker, defender, who):
     if who == "player":
@@ -45,11 +45,11 @@ def turn2(attacker, defender, who):
 
     if decision == "1":
         defender["hp"] -= attacker["atk"]
-        print(f"{attacker["name"]} hits {defender["name"]} for {attacker["atk"]} damage")
+        print(f"{attacker["name"]} hit {defender["name"]} for {attacker["atk"]} damage")
     
     if decision == "2":
         attacker["hp"] -= defender["atk"]
-        print(f"{defender["name"]} hits {attacker["name"]} for {defender["atk"]}")
+        print(f"{defender["name"]} hit {attacker["name"]} for {defender["atk"]}")
 
 def turn3(attacker, defender, who):
     if who == "player":
@@ -68,11 +68,11 @@ def turn3(attacker, defender, who):
         healAmt = sum(diceRoll("1d4"))
         defender["hp"] += healAmt
         print(f"You blocked {attacker["name"]} and regained {healAmt} hp")
-        print(f"{defender["name"]} regains {healAmt} hp")
+        print(f"{defender["name"]} regain {healAmt} hp")
 
     if decision == "2":
         defender["hp"] -= attacker["atk"]
-        print(f"{attacker["name"]} attacks {defender["name"]} for {attacker["atk"]} damage")
+        print(f"{attacker["name"]} attack {defender["name"]} for {attacker["atk"]} damage")
 
 def beachBattle(player, enemy):
     print(f"{enemy["name"]} caw from above you")
@@ -120,7 +120,10 @@ def main():
     result = beachBattle(player, enemy)
     if result == "enemy dead":
         print(f"{enemy["name"]} fall in the sand around you")
-        print("Continue west")
+        print("You have survived your great battle.")
+        print("Your reward is a puppy!")
+        print("But sorry, we don't offer training.")
+        print("Congratulations! Enjoy your new friend.")
     else:
         print(f"{player["name"]} has reached their final fate.")
         print(f"This is the end of the journey for {player["name"]}")
